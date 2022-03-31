@@ -5,7 +5,10 @@ let randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
-//not enabled
+//playAgainButton not enabled
+
+document.querySelector('.again').textContent = ''; //default Play Again button text
+
 let playAgainButton = () => {
   document.getElementsByClassName(
     'playAgain'
@@ -15,7 +18,6 @@ let playAgainButton = () => {
 let setMessage = message => {
   document.querySelector('.message').textContent = message;
 };
-document.querySelector('.again').textContent = ''; //default Play Again button text
 
 let userGuess = (x, y) => {
   score;
