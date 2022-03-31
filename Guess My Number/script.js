@@ -7,12 +7,10 @@ let highScore = 0;
 
 //playAgainButton not enabled
 
-document.querySelector('.again').textContent = ''; //default Play Again button text
+let playAgain = document.querySelector('.playAgain'); //default Play Again button text
 
-let playAgainButton = () => {
-  document.getElementsByClassName(
-    'playAgain'
-  ).innerHtml = `<button class="btn again">Play Again!</button>`;
+let unhidePlayAgainBtn = () => {
+  playAgain.classList.remove('hidden');
 };
 
 let setMessage = message => {
@@ -29,7 +27,7 @@ let userGuess = (x, y) => {
     document.querySelector('body').style.backgroundColor = '#60b347';
     setMessage('You Win!');
     newScore;
-    document.querySelector('.again').textContent = 'Play Again!';
+    unhidePlayAgainBtn();
     console.log(highScore, score);
     if (highScore < score) {
       document.querySelector('.highscore').textContent = score - 1;
@@ -42,7 +40,7 @@ let userGuess = (x, y) => {
     if (score < 0) {
       setMessage('Game Over! You Lose.');
       document.querySelector('body').style.backgroundColor = '#FF0000';
-      document.querySelector('.again').textContent = 'Play Again!';
+      unhidePlayAgainBtn();
     }
   }
 };
